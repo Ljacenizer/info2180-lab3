@@ -28,10 +28,23 @@ window.onload = function(){
                 if((divsquare[index[0]].innerHTML == playerX) && (divsquare[index[1]].innerHTML == playerX) && (divsquare[index[2]].innerHTML == playerX)){
                     statusbar.classList.add("you-won");
                     statusbar.innerHTML = ("Congratulations! X is the Winner!");
+
+                    divsquare.forEach((sq)=>{
+                        if (sq.innerHTML == ""){
+                            sq.innerHTML = " ";
+                        }
+                    });
                 }
+
                 else if((divsquare[index[0]].innerHTML == playerO) && (divsquare[index[1]].innerHTML == playerO) && (divsquare[index[2]].innerHTML == playerO)){
                     statusbar.classList.add("you-won");
                     statusbar.innerHTML = ("Congratulations! O is the Winner!");
+
+                    divsquare.forEach((sq)=>{
+                        if (sq.innerHTML == ""){
+                            sq.innerHTML = " ";
+                        }
+                    });
                 }
             });
         });
