@@ -4,14 +4,11 @@ window.onload = function(){
     var playerX = "X";
     var playerO = "O";
 
-    for(let i=0; i<=8; i++){
-        divsquare[i].setAttribute("class","square");
-        divsquare[i].innerHTML = "";
-    }
 
     divsquare.forEach((element) =>{
         element.classList.add("square");
         element.innerHTML = "";
+
         element.addEventListener("click", function(){
             if ((currplayer == true) && (element.innerHTML == "")){
                 element.innerHTML = playerX;
@@ -24,5 +21,14 @@ window.onload = function(){
                 currplayer = true;
             }
         });
+
+        element.onmouseover = (event) =>{
+            element.style.transition = "all .3s ease-in-out"
+            element.classList.add("hover");
+        }
+
+        element.onmouseout = (event) =>{
+            element.classList.remove("hover");
+        }
     });
 }
