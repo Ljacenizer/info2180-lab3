@@ -1,6 +1,8 @@
 window.onload = function(){
     var divsquare = document.querySelectorAll("#board > div");
     var statusbar = document.getElementById("status");
+    var newgame = document.querySelector(".btn");
+
     var currplayer = true;
     var playerX = "X";
     var playerO = "O";
@@ -42,5 +44,9 @@ window.onload = function(){
         element.onmouseout = (event) =>{
             element.classList.remove("hover");
         }
+
+        newgame.addEventListener("click", (event) => {
+            location.reload();
+        })
     });
 }
