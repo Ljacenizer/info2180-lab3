@@ -1,8 +1,10 @@
 window.onload = function(){
     var divsquare = document.querySelectorAll("#board > div");
+    var statusbar = document.getElementById("status");
     var currplayer = true;
     var playerX = "X";
     var playerO = "O";
+    var wincon = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
 
 
     divsquare.forEach((element) =>{
@@ -20,6 +22,16 @@ window.onload = function(){
                 element.classList.add("O");
                 currplayer = true;
             }
+            wincon.forEach((index)=> {
+                if((divsquare[index[0]].innerHTML == playerX) && (divsquare[index[1]].innerHTML == playerX) && (divsquare[index[2]].innerHTML == playerX)){
+                    statusbar.classList.add("you-won");
+                    statusbar.innerHTML = ("Congratulations! X is the Winner!");
+                }
+                else if((divsquare[index[0]].innerHTML == playerO) && (divsquare[index[1]].innerHTML == playerO) && (divsquare[index[2]].innerHTML == playerO)){
+                    statusbar.classList.add("you-won");
+                    statusbar.innerHTML = ("Congratulations! O is the Winner!");
+                }
+            });
         });
 
         element.onmouseover = (event) =>{
